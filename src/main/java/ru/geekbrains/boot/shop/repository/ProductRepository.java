@@ -32,8 +32,8 @@ public class ProductRepository {
 
     public Product save(Product product) {
         if (product.getId() != null) {
-            for (int i = 0; i < productList.size(); i++) {
-                if (productList.get(i).getId().equals(product.getId())) {
+            for (Product value : productList) {
+                if (value.getId().equals(product.getId())) {
                     throw new ProductAlreadyAddedException("Продукт с ID: " + product.getId() + " уже существует");
                 }
             }
